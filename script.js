@@ -6,7 +6,7 @@ const ph = document.getElementById("phone");
 
 
  window.onload = ()=>{
-	let data = localStorage.getItem("data");
+	let data = localStorage.getItem("forms");
 	 if(data){
 		 const info = JSON.parse(data);
 		 nam.value = info.name;
@@ -25,7 +25,7 @@ const formHandler = (e)=>{
 		email: mail.value,
 		phNo: ph.value
 	}
-	localStorage.setItem("data",JSON.stringify(data));
+	localStorage.setItem("forms",JSON.stringify(data));
 }
 
 formbtn.addEventListener("click",formHandler);         
