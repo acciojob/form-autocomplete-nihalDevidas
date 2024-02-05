@@ -1,19 +1,32 @@
 //your JS code here. If required.
-const formtag = document.getElementById("form1");
-const ip = document.getElementById("ip1");
+const formbtn = document.getElementById("btn");
+const nam = document.getElementById("name");
+const mail = document.getElementById("email");
+const ph = document.getElementById("phone");
+
+
  window.onload = ()=>{
-	let mail = localStorage.getItem("email");
-	 if(mail){
-		 ip.value = JSON.parse(mail)
+	let data = localStorage.getItem("data");
+	 if(data){
+		 const info = JSON.parse(data);
+		 nam.value = info.name;
+		 mail.value = info.email;
+		 ph.value = info.phNo;
 	 }
 	 	
-} 
-
+}   
+  
   
 const formHandler = (e)=>{
-	e.preventDefault() 
-	localStorage.setItem("email",JSON.stringify(ip.value));
+	e.preventDefault()
+	console.log("yes")
+	const data = {
+		name: nam.value,
+		email: mail.value,
+		phNo: ph.value
+	}
+	localStorage.setItem("data",JSON.stringify(data));
 }
 
-formtag.addEventListener("submit",formHandler);       
+formbtn.addEventListener("click",formHandler);         
        
